@@ -1,17 +1,18 @@
-import express from 'express';
+import express, { Response } from 'express';
 import mongoose from 'mongoose';
 import router from './routes/product.route.js';
+import 'reflect-metadata';
 
 const app = express();
 
 // middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use("/api/products", router);
 
-app.get('/', (req, res) => {
+app.get('/', (res: Response) => {
     res.send("Hello from Node API Server Updated");
 });
 
@@ -24,6 +25,6 @@ mongoose.connect('mongodb+srv://admin:userPassword1234@backenddb.8dwv4kq.mongodb
             console.log('Server is running on port 3000');
         });
     })
-    .catch(() => {
-        console.log("Connection failed")
+    .catch((error) => {
+        console.log("Connection failed", error)
     });
