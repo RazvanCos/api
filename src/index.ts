@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express, { Response } from 'express';
 import mongoose from 'mongoose';
 import router from './routes/product.route.js';
@@ -16,9 +17,9 @@ app.get('/', (res: Response) => {
     res.send("Hello from Node API Server Updated");
 });
 
-// database connection
 
-mongoose.connect('mongodb+srv://admin:userPassword1234@backenddb.8dwv4kq.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
+// database connection
+mongoose.connect(process.env.MONGODB_URI as string)
     .then(() => {
         console.log('Connected to the database!');
         app.listen(3000, () => {
