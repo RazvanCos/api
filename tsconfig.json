@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    "target": "ES6",                                  
+    "module": "ESNext",  
+    "lib": ["ES2019"],                             
+    "experimentalDecorators": true,                     
+    "emitDecoratorMetadata": true, 
+    "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    "noImplicitAny": true,                    
+    "moduleResolution": "node",                          
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true,            
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src"                                 
+  },
+  "exclude": ["node_modules", "dist"]
+}
+
